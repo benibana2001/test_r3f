@@ -1,10 +1,7 @@
-import { OrbitControls } from "@react-three/drei";
+import { Stage, OrbitControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Suspense } from "react";
-import Model from "./Model";
 import Placeholder from "./Placeholder";
-import Hamburger from "./Hamburger";
-import Fox from "./Fox";
 import Hearts from "./Hearts";
 
 export default function Experience() {
@@ -13,7 +10,6 @@ export default function Experience() {
       <Perf position="top-left" />
 
       <OrbitControls makeDefault />
-
       <directionalLight
         castShadow
         position={[1, 2, 3]}
@@ -22,23 +18,14 @@ export default function Experience() {
       />
       <ambientLight intensity={0.5} />
 
-      <mesh
-        receiveShadow
-        position-y={-1}
-        rotation-x={-Math.PI * 0.5}
-        scale={10}
-      >
+      <mesh receiveShadow position-y={-1} rotation-x={-Math.PI * 0.5} scale={6}>
         <planeGeometry />
-        <meshStandardMaterial color="greenyellow" />
+        <meshStandardMaterial color="#d0b2f7" />
       </mesh>
 
-      {/* lazy loading */}
       <Suspense
-        fallback={<Placeholder position-rotateY={0.5} scale={[2, 3, 2]} />}
+        fallback={<Placeholder position-rotateY={0.5} scale={[4, 4, 4]} />}
       >
-        {/* <Model /> */}
-        <Hamburger scale={0.35} />
-        <Fox />
         <Hearts />
       </Suspense>
     </>
