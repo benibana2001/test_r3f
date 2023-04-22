@@ -2,7 +2,7 @@ import { Stage, OrbitControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { Suspense } from "react";
 import Placeholder from "./Placeholder";
-import Hearts from "./Hearts";
+import Room from "./Room";
 
 export default function Experience() {
   return (
@@ -26,7 +26,7 @@ export default function Experience() {
       <Suspense
         fallback={<Placeholder position-rotateY={0.5} scale={[4, 4, 4]} />}
       >
-        <Hearts />
+        <Room />
       </Suspense>
     </>
   );
