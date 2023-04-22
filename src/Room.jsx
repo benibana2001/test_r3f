@@ -6,16 +6,15 @@ export default function Room() {
   const animations = useAnimations(room.animations, room.scene);
 
   useEffect(() => {
-    console.log(animations.actions);
     animations.actions["ChairAction"].reset().fadeIn(0.5).play();
   }, []);
 
   return (
     <primitive
       object={room.scene}
-      scale={0.5}
+      scale={1}
       position={[0, 0, 0]}
-      position-y={-1.0}
+      position-y={-1.4}
     />
   );
 }

@@ -16,9 +16,9 @@ export default function Experience() {
         intensity={1.5}
         shadow-normalBias={0.04} // 不自然な影、「shadow acne」 をへらす
       />
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.6} />
 
-      <mesh receiveShadow position-y={-1} rotation-x={-Math.PI * 0.5} scale={6}>
+      <mesh receiveShadow position-y={-1.4} rotation-x={-Math.PI * 0.5} scale={6}>
         <planeGeometry />
         <meshStandardMaterial color="#d0b2f7" />
       </mesh>
