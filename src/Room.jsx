@@ -14,7 +14,9 @@ export default function Room() {
       object={room.scene}
       scale={1}
       position={[0, 0, 0]}
-      position-y={-1.4}
+      position-y={-1.8}
+      rotation-x={Math.PI * 0.04}
+      rotation-y={Math.PI * 0.2}
     />
   );
 }

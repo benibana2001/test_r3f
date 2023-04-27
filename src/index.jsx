@@ -6,15 +6,17 @@ import Experience from './Experience.jsx'
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
-    <Canvas
-        shadows
-        camera={ {
-            fov: 45,
-            near: 0.1,
-            far: 200,
-            position: [ - 6, 0, 7 ]
-        } }
-    >
-        <Experience />
-    </Canvas>
+  <Canvas
+    shadows
+    orthographic
+    camera={{
+      zoom: 100,
+      near: 1,
+      far: 2000,
+    }}
+  >
+    <color args={["#898dcc"]} attach="background" />
+    <Experience />
+
+  </Canvas>
 )
