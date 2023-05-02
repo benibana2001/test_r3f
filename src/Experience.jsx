@@ -3,6 +3,7 @@ import { Perf } from "r3f-perf";
 import { Suspense } from "react";
 import Placeholder from "./Placeholder";
 import Room from "./Room";
+import TowerPc from "./TowerPc";
 
 export default function Experience() {
   return (
@@ -10,23 +11,20 @@ export default function Experience() {
       <Perf position="top-left" />
 
       <OrbitControls makeDefault />
-      <directionalLight
+      {/* <directionalLight
         castShadow
         position={[1, 2, 3]}
         intensity={1.5}
         shadow-normalBias={0.04} // 不自然な影、「shadow acne」 をへらす
-      />
-      <ambientLight intensity={0.6} />
-      {/* 
-      <mesh receiveShadow position-y={-1.4} rotation-x={-Math.PI * 0.5} scale={6}>
-        <planeGeometry />
-        <meshStandardMaterial color="#d0b2f7" />
-      </mesh>
- */}
+      /> */}
+
+      {/* <ambientLight intensity={0.6} /> */}
+
       <Suspense
         fallback={<Placeholder position-rotateY={0.5} scale={[4, 4, 4]} />}
       >
-        <Room />
+        {/* <Room /> */}
+        <TowerPc />
       </Suspense>
     </>
   );
