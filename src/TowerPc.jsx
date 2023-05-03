@@ -8,8 +8,6 @@ export default function TowerPc() {
   const bakedTexture = useTexture("./TowerPcBaked.jpg")
   bakedTexture.flipY = false
 
-  console.log(nodes)
-
   return (
     <Center>
       <TreeNode children={nodes.Scene.children} texture={bakedTexture}></TreeNode>
@@ -18,24 +16,20 @@ export default function TowerPc() {
 }
 
 function TreeNode({children, texture}) {
-  console.log(children)
+  const hasGeometry = (child) => (child.type === "Mesh" && child.geometry)
+  const hasChildren = (child) => (child.children && child.children.length > 0)
 
   return (
     <>
       {children.map((child, index) => (
         <mesh key={index} geometry={child.geometry} position={child.position}>
 
-          {/* TypeがMeshの場合 */}
-          {(child.type === "Mesh" && child.geometry) &&
+          {hasGeometry(child) &&(
             <meshBasicMaterial map={texture} />
-          }
-          { 
-            console.log(child.name)
-          }
+          )}
 
-          {/* Childrenを保有する場合 */}
-          {(child.children && child.children.length > 0) &&
-            <TreeNode children={child.children} />
+          {hasChildren &&
+            <TreeNode children={child.children} texture={texture} />
           }
         </mesh>
       ))}
